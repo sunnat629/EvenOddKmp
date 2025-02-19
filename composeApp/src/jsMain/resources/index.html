@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EvenOddKmp</title>
+    <title>Even Odd Check</title>
 </head>
 <body>
-    
-    <h1>Even Odd Checker</h1>
-    <p id="result-even"></p>
-    <p id="result-odd"></p>
+<h1>Even-Odd JavaScript Test</h1>
+<button onclick="checkNumber()">Check Number</button>
+<p id="result"></p>
+
+<script src="even_odd_kmp.js"></script> <!-- Load your JS file -->
+<script>
+    function checkNumber() {
+        const lib = globalThis["EvenOddKmp:evenOddKmpLib"]; // Accessing the correct global variable
+
+        if (!lib || typeof lib.isEven !== "function") {
+            console.error("Library not loaded correctly.");
+            return;
+        }
+
+        let num = Math.floor(Math.random() * 100);
+        let result = lib.isEven(num) ? `${num} is Even` : `${num} is Odd`;
+
+        document.getElementById("result").innerText = result;
+    }
+</script>
 </body>
 </html>
