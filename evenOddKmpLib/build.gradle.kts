@@ -10,21 +10,28 @@ plugins {
 version = "0.0.7"
 
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmJs {
+//        moduleName = "even_odd_kmp"
+//        binaries.executable()
+//        browser {
+//            webpackTask {
+//                output.libraryTarget = "umd"
+//            }
+//        }
+//    }
+
+    js {
         moduleName = "even_odd_kmp"
         binaries.executable()
         browser {
             webpackTask {
                 output.libraryTarget = "umd"
             }
+            runTask {
+                output.libraryTarget = "umd"
+            }
         }
-    }
-
-    js(IR) {
-        moduleName = "even_odd_kmp"
-        binaries.executable()
-        browser()
     }
 
     androidTarget {
